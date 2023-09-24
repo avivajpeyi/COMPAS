@@ -7,7 +7,8 @@ from typing import List, Optional
 
 from ..totalMassEvolvedPerZ import (
     analytical_star_forming_mass_per_binary_using_kroupa_imf,
-    draw_samples_from_kroupa_imf)
+    draw_samples_from_kroupa_imf
+)
 from .conversions import m1_m2_to_chirp_mass, m1_m2_to_eta
 from .plotting import plot_bbh_population
 
