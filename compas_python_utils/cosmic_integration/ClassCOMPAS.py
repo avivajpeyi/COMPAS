@@ -3,7 +3,6 @@ import numpy as np
 import h5py as h5
 import os
 from . import totalMassEvolvedPerZ as MPZ
-import astropy.units as u
 
 
 class COMPASData(object):
@@ -226,9 +225,9 @@ class COMPASData(object):
 
     def find_star_forming_mass_per_binary_sampling(self):
         self.mass_evolved_per_binary = MPZ.analytical_star_forming_mass_per_binary_using_kroupa_imf(
-            m1_max=self.Mupper,
-            m1_min=self.Mlower,
-            m2_min=self.m2_min,
+            m1_max=self.Mupper.value,
+            m1_min=self.Mlower.value,
+            m2_min=self.m2_min.value,
             fbin=self.binaryFraction,
         )
 

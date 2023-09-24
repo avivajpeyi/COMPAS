@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.integrate import quad
-import h5py as h5       # for reading in data
+from scipy.interpolate import interp1d
+import h5py as h5
 import functools
 
 @functools.lru_cache()
@@ -97,7 +98,7 @@ def get_COMPAS_fraction(m1_low, m1_upp, m2_low, f_bin, mass_ratio_pdf_function=l
         
         # return total mass of binary stars that have m2 above the cut
         return f_bin * (1 - f_below_m2low) * (primary_mass + expected_secondary_mass)
-    
+
     compas_mass = quad(compas_integral, m1_low, m1_upp, args=(m2_low, f_bin, m1, m2, m3, m4, a12, a23, a34))[0]
     return compas_mass / full_mass
 

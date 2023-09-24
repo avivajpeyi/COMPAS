@@ -11,7 +11,9 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import argparse
 
-COMPAS_ROOT_DIR = os.path.expandvars(os.environ['COMPAS_ROOT_DIR'])
+HERE = os.path.dirname(os.path.realpath(__file__))
+
+COMPAS_ROOT_DIR = os.path.expandvars(os.environ.get('COMPAS_ROOT_DIR', os.path.join(HERE, '../..')))
 VAN_DEN_HEUVEL_DIR = os.path.join(COMPAS_ROOT_DIR, 'compas_python_utils/detailed_evolution_plotter/van_den_heuvel_figures/')
 
 
@@ -342,7 +344,7 @@ def getStellarTypes(Data):
 
     # List of Hurley stellar types
     stellarTypes = [r'MS$<0.7M_\odot$', r'MS$\geq0.7M_\odot$', 'HG', 'FGB', 'CHeB', 'EAGB', 'TPAGB', 'HeMS', 'HeHG',
-                    'HeGB', 'HeWD', 'COWD', 'ONeWD', 'NS', 'BH', 'MR']
+                    'HeGB', 'HeWD', 'COWD', 'ONeWD', 'NS', 'BH', 'MR', 'CHE']
 
     useTypes = np.unique(np.append(Data['Stellar_Type(1)'][()], Data['Stellar_Type(2)'][()]))
     if (0 in useTypes) != (1 in useTypes):  # XOR
