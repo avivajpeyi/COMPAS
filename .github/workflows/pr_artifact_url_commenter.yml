@@ -3,7 +3,7 @@ name: Comment on Pull request
 on:
   workflow_run:
     workflows:
-      - 'COMPAS compile test's
+      - 'COMPAS compile test'
     types:
       - completed
 
