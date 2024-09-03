@@ -1,4 +1,17 @@
-## Assumes that COMPAS is installed in the current environment
-
-# Generate a population of 10 binaries
-COMPAS -n 10
+#bin/bash
+echo ">>>  GENERATING TEST COMPAS DATA <<<"
+$COMPAS_EXECUTABLE_PATH \
+  -n 2 \
+  --initial-mass-1 35 \
+  --initial-mass-2 31 \
+  -a 3.5 \
+  --random-seed 0 \
+  --metallicity 0.001 \
+  --detailed-output \
+  > compas_run.log
+cat compas_run.log
+echo "Generating detailed evolution plot"
+compas_plot_detailed_evolution "./COMPAS_Output/Detailed_Output/BSE_Detailed_Output_0.h5" --dont-show >> detailed_evolution.log
+echo "Out files:"
+ls -l
+echo ">>> DONE <<<"

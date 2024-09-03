@@ -43,10 +43,10 @@ jobs:
           pip install --upgrade pip
           pip install -e .[dev]
           export COMPAS_ROOT_DIR=${GITHUB_WORKSPACE}
-          cd ${GITHUB_WORKSPACE}/misc/examples/methods_paper_plots/detailed_evolution
-          chmod 755 run.sh
-          cat run.sh
-          ./run.sh
+          cd ${GITHUB_WORKSPACE}/py_tests/test_data/
+          chmod 755 generate_test_data.sh
+          cat generate_test_data.sh
+          ./generate_test_data.sh
 
       - name: Run pytests
         # Run tests and collect coverage data
